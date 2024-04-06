@@ -11,9 +11,9 @@ This project serves as the updated official implementation for the [paper](https
 ![Rein Framework](framework.png)
 
 ## 🔥 News!
-We have uploaded the checkpoint and config for +1/16 of Cityscapes training set.
+🔥 We have uploaded the checkpoint and config for +1/16 of Cityscapes training set, and it get **82.5%** in Cityscapes validation set!
 
-🔥 Rein is accepted in CVPR 2024!
+🔥 Rein is accepted in `CVPR2024`!
 
 🔥 Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.56% on the ACDC** test set! This result ranks **first** in the DGSS methods on the ACDC [benchmark](https://acdc.vision.ee.ethz.ch/submissions/65b6848187f1a5171cf44c34)! Checkpoint is avaliable at [release](https://github.com/w1oves/Rein/releases/tag/Cityscapes).
 
