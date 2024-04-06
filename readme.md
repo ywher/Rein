@@ -26,7 +26,7 @@ We have simplified the code for easier evaluation.
 |**GTAV $\rightarrow$ Cityscapes**|**66.7**|[config](https://github.com/w1oves/Rein/releases/download/GTAV/config.py)|[log](https://github.com/w1oves/Rein/releases/download/GTAV/20231213_213507.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/GTAV/iter_40000_published.pth)
 |+Synthia $\rightarrow$ Cityscapes|68.1|-|-|
 |**+UrbanSyn $\rightarrow$ Cityscapes**|**78.4**|[config](https://github.com/w1oves/Rein/releases/download/Cityscapes/config.py)|[log](https://github.com/w1oves/Rein/releases/download/Cityscapes/20240120_154745.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/Cityscapes/citys2acdc_40k_rein_head.pth)|
-|+1/16 of Cityscapes training $\rightarrow$ Cityscapes|82.5|[config](https://github.com/w1oves/Rein/releases/download/Semi-Supervised(1%2F16)/config.py) & [checkpoint] (https://github.com/w1oves/Rein/releases/download/Semi-Supervised(1%2F16)/iter_4000_published.pth)
+|+1/16 of Cityscapes training $\rightarrow$ Cityscapes|82.5|[config](https://github.com/w1oves/Rein/releases/download/Semi-Supervised(1%2F16)/config.py)| [log](https://github.com/w1oves/Rein/releases/download/Semi-Supervised(1%2F16)/20240405_162723.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/Semi-Supervised(1%2F16)/iter_4000_published.pth)
 |GTAV $\rightarrow$ BDD100K|60.0|[config](https://github.com/w1oves/Rein/releases/download/GTAV/config.py)|[log](https://github.com/w1oves/Rein/releases/download/GTAV/20231213_213507.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/GTAV/iter_40000_published.pth)
 |**Cityscapes $\rightarrow$ ACDC**|**77.6**|[config](https://github.com/w1oves/Rein/releases/download/Cityscapes/config.py)|[log](https://github.com/w1oves/Rein/releases/download/Cityscapes/20240120_154745.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/Cityscapes/citys2acdc_40k_rein_head.pth)
 |Cityscapes $\rightarrow$ Cityscapes-C|60.0|[config](https://github.com/w1oves/Rein/releases/download/Cityscapes/config.py)|[log](https://github.com/w1oves/Rein/releases/download/Cityscapes/20240120_154745.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/Cityscapes/citys2acdc_40k_rein_head.pth)
@@ -151,6 +151,13 @@ Start training in multiple GPU:
 ```
 PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/rein_dinov2_mask2former_1024x1024_bs4x2.py NUM_GPUS
 ```
+## FAQs
+* [Detailed instruction for mmsegmentation.](https://mmsegmentation.readthedocs.io/en/latest/)
+* [How to train on new dataset?](https://github.com/w1oves/Rein/issues/21)
+* [How to visualize and save the segmentation results?](https://github.com/w1oves/Rein/issues/22)
+* [How to use new checkpoint?](https://github.com/w1oves/Rein/issues/4)
+* [What is the difference between the ReinMask2FormerHead and original Mask2FormerHead?](https://github.com/w1oves/Rein/issues/12)
+* [Multi-gpu training problem](https://github.com/w1oves/Rein/issues/6)
 
 ## Citation
 If you find our code or data helpful, please cite our paper:
@@ -162,3 +169,9 @@ If you find our code or data helpful, please cite our paper:
   year={2023}
 }
 ```
+
+## Acknowledgment
+Our implementation is mainly based on following repositories. Thanks for their authors.
+* [MMSegmentation](https://github.com/open-mmlab/mmsegmentation)
+* [DDB](https://github.com/xiaoachen98/DDB)
+* [DTP](https://github.com/w1oves/DTP)
