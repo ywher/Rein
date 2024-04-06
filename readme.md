@@ -11,7 +11,7 @@ This project serves as the updated official implementation for the [paper](https
 ![Rein Framework](framework.png)
 
 ## 🔥 News!
-🔥 We have uploaded the checkpoint and config for +1/16 of Cityscapes training set, and it get **82.5%** in Cityscapes validation set!
+🔥 We have uploaded the checkpoint and config for `+1/16 of Cityscapes` training set, and it get **82.5% on the Cityscapes** validation set!
 
 🔥 Rein is accepted in `CVPR2024`!
 
