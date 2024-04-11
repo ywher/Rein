@@ -126,11 +126,11 @@ Rein
 * **Download:** Download pre-trained weights from [facebookresearch](https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_pretrain.pth) for testing. Place them in the project directory without changing the file name.
 * **Convert:** Convert pre-trained weights for training or evaluation.
   ```bash
-  python tools/convert_models/convert_dinov2_large_512x512.py checkpoints/dinov2_vitl14_pretrain.pth checkpoints/dinov2_converted.pth
+  python tools/convert_models/convert_dinov2.py checkpoints/dinov2_vitl14_pretrain.pth checkpoints/dinov2_converted.pth
   ```
   (optional for 1024x1024 resolution)
   ```bash
-  python tools/convert_models/convert_dinov2_large_1024x1024.py checkpoints/dinov2_vitl14_pretrain.pth checkpoints/dinov2_converted_1024x1024.pth
+  python tools/convert_models/convert_dinov2.py checkpoints/dinov2_vitl14_pretrain.pth checkpoints/dinov2_converted_1024x1024.pth --height 1024 --width 1024
   ```
 ## Evaluation
   Run the evaluation:
