@@ -4,12 +4,5 @@ from .reins_eva_02 import ReinsEVA2
 from .reins_resnet import ReinsResNetV1c
 from .reins_convnext import ReinsConvNeXt
 from .clip import CLIPVisionTransformer
-
-__all__ = [
-    "CLIPVisionTransformer",
-    "DinoVisionTransformer",
-    "ReinsDinoVisionTransformer",
-    "ReinsEVA2",
-    "ReinsResNetV1c",
-    "ReinsConvNeXt",
-]
+from .reins_sam_vit import ReinsSAMViT
+from .sam_vit import SAMViT
