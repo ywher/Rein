@@ -10,16 +10,12 @@ This project serves as the [official implementation for the paper](https://arxiv
 
 ![Rein Framework](framework.png)
 
-## 🔥 News!
-* We have uploaded the config for `ResNet` and `ConvNeXt`.
+## Demo
+* From Cityscapes **generalize** to unseen **Night** bilibili videos in shanghai
 
-* 🔥 We have uploaded the checkpoint and config for `+1/16 of Cityscapes` training set, and it get **82.5% on the Cityscapes** validation set!
-
-* Rein is accepted in `CVPR2024`!
-
-* 🔥 Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.56% on the ACDC** test set! This result ranks **first** in the DGSS methods on the ACDC [benchmark](https://acdc.vision.ee.ethz.ch/submissions/65b6848187f1a5171cf44c34)! Checkpoint is avaliable at [release](https://github.com/w1oves/Rein/releases/tag/Cityscapes).
-
-* 🔥 Using only synthetic data (UrbanSyn, GTAV, and Synthia), Rein achieved an mIoU of **78.4\% on Cityscapes**! Checkpoint is avaliable at [release](https://github.com/w1oves/Rein/releases/tag/UrbanSyn%2BGTAV%2BSynthia).
+<p align="center">
+  
+</p>
 
 ## Performance Under Various Settings (DINOv2).
 
@@ -44,12 +40,34 @@ This project serves as the [official implementation for the paper](https://arxiv
 |ViT-Base |DINOv2|64.3|[config](https://github.com/w1oves/Rein/releases/download/GTAV%2BViT-Base/config.py)|[log](https://github.com/w1oves/Rein/releases/download/GTAV%2BViT-Base/20240129_201643.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/GTAV%2BViT-Base/iter_40000_published.pth)
 |CLIP-Large | [OPENAI](https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt) | 58.1 | [config](https://github.com/w1oves/Rein/releases/download/GTAV%2BCLIP-L/config.py)|[log](https://github.com/w1oves/Rein/releases/download/GTAV%2BCLIP-L/20240508_223110.json) & [checkpoint](https://github.com/w1oves/Rein/releases/download/GTAV%2BCLIP-L/iter_40000_published.pth)
 
+## Citation
+If you find our code or data helpful, please cite our paper:
+```bibtex
+@article{wei2023stronger,
+  title={Stronger, Fewer, \& Superior: Harnessing Vision Foundation Models for Domain Generalized Semantic Segmentation},
+  author={Wei, Zhixiang and Chen, Lin and Jin, Yi and Ma, Xiaoxiao and Liu, Tianle and Ling, Pengyang and Wang, Ben and Chen, Huaian and Zheng, Jinjin},
+  journal={arXiv preprint arXiv:2312.04265},
+  year={2023}
+}
+```
+
+## 🔥 News!
+* We have uploaded the config for `ResNet` and `ConvNeXt`.
+
+* 🔥 We have uploaded the checkpoint and config for `+1/16 of Cityscapes` training set, and it get **82.5% on the Cityscapes** validation set!
+
+* Rein is accepted in `CVPR2024`!
+
+* 🔥 Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.56% on the ACDC** test set! This result ranks **first** in the DGSS methods on the ACDC [benchmark](https://acdc.vision.ee.ethz.ch/submissions/65b6848187f1a5171cf44c34)! Checkpoint is avaliable at [release](https://github.com/w1oves/Rein/releases/tag/Cityscapes).
+
+* 🔥 Using only synthetic data (UrbanSyn, GTAV, and Synthia), Rein achieved an mIoU of **78.4\% on Cityscapes**! Checkpoint is avaliable at [release](https://github.com/w1oves/Rein/releases/tag/UrbanSyn%2BGTAV%2BSynthia).
+
 ## Try and Test
 **Experience the demo:** Users can open [demo.ipynb](demo.ipynb) in any Jupyter-supported editor to explore our demonstration.
 ![Demo Preview](demo.png)
 
 For testing on the cityscapes dataset, refer to the 'Install' and 'Setup' sections below.
-
+  
 ## Environment Setup
 To set up your environment, execute the following commands:
 ```bash
@@ -163,17 +181,6 @@ PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/
 * [How to use new checkpoint?](https://github.com/w1oves/Rein/issues/4)
 * [What is the difference between the ReinMask2FormerHead and original Mask2FormerHead?](https://github.com/w1oves/Rein/issues/12)
 * [Multi-gpu training problem](https://github.com/w1oves/Rein/issues/6)
-
-## Citation
-If you find our code or data helpful, please cite our paper:
-```bibtex
-@article{wei2023stronger,
-  title={Stronger, Fewer, \& Superior: Harnessing Vision Foundation Models for Domain Generalized Semantic Segmentation},
-  author={Wei, Zhixiang and Chen, Lin and Jin, Yi and Ma, Xiaoxiao and Liu, Tianle and Ling, Pengyang and Wang, Ben and Chen, Huaian and Zheng, Jinjin},
-  journal={arXiv preprint arXiv:2312.04265},
-  year={2023}
-}
-```
 
 ## Acknowledgment
 Our implementation is mainly based on following repositories. Thanks for their authors.
