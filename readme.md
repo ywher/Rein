@@ -10,13 +10,6 @@ This project serves as the [official implementation for the paper](https://arxiv
 
 ![Rein Framework](framework.png)
 
-## Demo
-* From Cityscapes **generalize** to unseen **Night** bilibili videos in shanghai
-
-<p align="center">
-  
-</p>
-
 ## Performance Under Various Settings (DINOv2).
 
 |Setting |mIoU |Config|Log & Checkpoint|
