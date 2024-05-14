@@ -1,7 +1,7 @@
 from functools import partial
 from typing import Tuple, Type
 import torch.nn as nn
-from .reins import BaseReins
+from .reins import Reins
 from .utils import set_requires_grad, set_train
 from mmseg.models.builder import BACKBONES, MODELS
 from .sam_vit import SAMViT

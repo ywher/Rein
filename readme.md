@@ -175,6 +175,14 @@ PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/
 * [What is the difference between the ReinMask2FormerHead and original Mask2FormerHead?](https://github.com/w1oves/Rein/issues/12)
 * [Multi-gpu training problem](https://github.com/w1oves/Rein/issues/6)
 
+* Q: Why do we need to use multiple weight files during testing?**
+
+  * A: The weight files used during testing are:
+
+    - **Backbone**: Pre-trained backbone weight files. Since Rein is a parameter-efficient fine-tuning method, there is no need to fine-tune the backbone. This means that for the same backbone, we only need to store one set of parameters, which can significantly reduce storage space.
+      
+    - **Rein_head**: Fine-tuned Rein weights and decode head weights.
+
 ## Acknowledgment
 Our implementation is mainly based on following repositories. Thanks for their authors.
 * [MMSegmentation](https://github.com/open-mmlab/mmsegmentation)
