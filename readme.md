@@ -1,15 +1,20 @@
 # [CVPR 2024] Stronger, Fewer, & Superior: Harnessing Vision Foundation Models for Domain Generalized Semantic Segmentation
+[zhixiang wei](https://zxwei.site)<sup>1</sup>, [lin chen](https://lin-chen.site)<sup>2</sup>, et al. <br />
+<sup>1</sup> University of Science of Techonology of China    <sup>2</sup> Shanghai AI Laboratory
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-adaptation-on-cityscapes-to-acdc)](https://paperswithcode.com/sota/domain-adaptation-on-cityscapes-to-acdc?p=stronger-fewer-superior-harnessing-vision)
+Project page: https://astra-vision.github.io/FAMix/ <br />
+Paper: https://arxiv.org/abs/2311.17922
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-generalization-on-gta-to-avg)](https://paperswithcode.com/sota/domain-generalization-on-gta-to-avg?p=stronger-fewer-superior-harnessing-vision)
-
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-adaptation-on-cityscapes-to-acdc)](https://paperswithcode.com/sota/domain-adaptation-on-cityscapes-to-acdc?p=stronger-fewer-superior-harnessing-vision) <br />
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-generalization-on-gta-to-avg)](https://paperswithcode.com/sota/domain-generalization-on-gta-to-avg?p=stronger-fewer-superior-harnessing-vision) <br />
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-generalization-on-gta5-to-cityscapes)](https://paperswithcode.com/sota/domain-generalization-on-gta5-to-cityscapes?p=stronger-fewer-superior-harnessing-vision)
-## Abstract
-This project serves as the [official implementation for the paper](https://arxiv.org/pdf/2312.04265.pdf). It presents a robust fine-tuning method called **Rein**, specifically developed to effectively utilize **Vision Foundation Models (VFMs)** for **Domain Generalized Semantic Segmentation (DGSS)**. It achieves **SOTA on Cityscapes to ACDC, and GTAV to Cityscapes+Mapillary+BDD100K**.  Using only synthetic data, Rein achieved an mIoU of **78.4\% on Cityscapes** validation set! Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.56% on ACDC** test set!
+
+Rein is a efficient and robust fine-tuning method, specifically developed to effectively utilize **Vision Foundation Models (VFMs)** for **Domain Generalized Semantic Segmentation (DGSS)**. It achieves **SOTA on Cityscapes to ACDC, and GTAV to Cityscapes+Mapillary+BDD100K**.  Using only synthetic data, Rein achieved an mIoU of **78.4\% on Cityscapes** validation set! Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.6% on ACDC** test set!
 ![Rein Framework](framework.png)
 
 ## Visualization
+Trained on Cityscapes, Rein generalizes to unseen driving scenes and cities: Nighttime Shanghai, Foggy Countryside, and Rainy Hollywood.
+
 [![night]](https://private-user-images.githubusercontent.com/54713447/330731120-f9e3fafd-ebb7-462d-bc9b-92b1bde96e23.mp4)
 
 [![rain]](https://private-user-images.githubusercontent.com/54713447/330731135-7c504893-6ead-41de-9820-b1e5ff267475.mp4)
