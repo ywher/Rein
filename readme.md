@@ -7,8 +7,15 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-generalization-on-gta5-to-cityscapes)](https://paperswithcode.com/sota/domain-generalization-on-gta5-to-cityscapes?p=stronger-fewer-superior-harnessing-vision)
 ## Abstract
 This project serves as the [official implementation for the paper](https://arxiv.org/pdf/2312.04265.pdf). It presents a robust fine-tuning method called **Rein**, specifically developed to effectively utilize **Vision Foundation Models (VFMs)** for **Domain Generalized Semantic Segmentation (DGSS)**. It achieves **SOTA on Cityscapes to ACDC, and GTAV to Cityscapes+Mapillary+BDD100K**.  Using only synthetic data, Rein achieved an mIoU of **78.4\% on Cityscapes** validation set! Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.56% on ACDC** test set!
-
 ![Rein Framework](framework.png)
+
+## Visualization
+[![night]](https://private-user-images.githubusercontent.com/54713447/330731120-f9e3fafd-ebb7-462d-bc9b-92b1bde96e23.mp4)
+
+[![rain]](https://private-user-images.githubusercontent.com/54713447/330731135-7c504893-6ead-41de-9820-b1e5ff267475.mp4)
+
+[![fog]](https://private-user-images.githubusercontent.com/54713447/330731083-9ab5c758-b2b6-4eac-bb63-9a546f2f89fe.mp4)
+
 
 ## Performance Under Various Settings (DINOv2).
 
