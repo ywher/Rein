@@ -187,6 +187,12 @@ PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/
 * [What is the difference between the ReinMask2FormerHead and original Mask2FormerHead?](https://github.com/w1oves/Rein/issues/12)
 * [Multi-gpu training problem](https://github.com/w1oves/Rein/issues/6)
 * [How to Integrate Rein into Your Existing Backbone?(without mmsegmentation)](docs/easy_rein.md)
+* Q: How to Visualize?
+  * A: Use `tools/visualize.py`, such as :
+  ``` bash
+  python tools/visualize.py /path/to/cfg /path/to/checkpoint /path/to/images --backbone /path/to/converted_backbone
+  ```
+  here `/path/to/images` can be a filename or image folder.
 
 * Q: Why do we need to use multiple weight files during testing?**
 
