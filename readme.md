@@ -15,11 +15,11 @@ Rein is a efficient and robust fine-tuning method, specifically developed to eff
 ## Visualization
 Trained on Cityscapes, Rein generalizes to unseen driving scenes and cities: Nighttime Shanghai, Foggy Countryside, and Rainy Hollywood.
 
-[![night]](https://private-user-images.githubusercontent.com/54713447/330731120-f9e3fafd-ebb7-462d-bc9b-92b1bde96e23.mp4)
+[![night]](https://user-images.githubusercontent.com/54713447/330731120-f9e3fafd-ebb7-462d-bc9b-92b1bde96e23.mp4)
 
-[![rain]](https://private-user-images.githubusercontent.com/54713447/330731135-7c504893-6ead-41de-9820-b1e5ff267475.mp4)
+[![rain]](https://user-images.githubusercontent.com/54713447/330731135-7c504893-6ead-41de-9820-b1e5ff267475.mp4)
 
-[![fog]](https://private-user-images.githubusercontent.com/54713447/330731083-9ab5c758-b2b6-4eac-bb63-9a546f2f89fe.mp4)
+[![fog]](https://user-images.githubusercontent.com/54713447/330731083-9ab5c758-b2b6-4eac-bb63-9a546f2f89fe.mp4)
 
 
 ## Performance Under Various Settings (DINOv2).
