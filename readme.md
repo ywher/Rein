@@ -10,7 +10,7 @@ Paper: https://arxiv.org/pdf/2312.04265.pdf
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stronger-fewer-superior-harnessing-vision/domain-generalization-on-gta5-to-cityscapes)](https://paperswithcode.com/sota/domain-generalization-on-gta5-to-cityscapes?p=stronger-fewer-superior-harnessing-vision)
 
 Rein is a efficient and robust fine-tuning method, specifically developed to effectively utilize **Vision Foundation Models (VFMs)** for **Domain Generalized Semantic Segmentation (DGSS)**. It achieves **SOTA on Cityscapes to ACDC, and GTAV to Cityscapes+Mapillary+BDD100K**.  Using only synthetic data, Rein achieved an mIoU of **78.4\% on Cityscapes** validation set! Using only the data from the Cityscapes training set, we achieved an average mIoU of **77.6% on ACDC** test set!
-![Rein Framework](framework.png)
+![Rein Framework](docs/framework.png)
 
 ## Visualization
 Trained on Cityscapes, Rein generalizes to unseen driving scenes and cities: Nighttime Shanghai, Foggy Countryside, and Rainy Hollywood.
@@ -70,7 +70,7 @@ If you find our code or data helpful, please cite our paper:
 
 ## Try and Test
 **Experience the demo:** Users can open [demo.ipynb](demo.ipynb) in any Jupyter-supported editor to explore our demonstration.
-![Demo Preview](demo.png)
+![Demo Preview](docs/demo.png)
 
 For testing on the cityscapes dataset, refer to the 'Install' and 'Setup' sections below.
   
@@ -187,6 +187,7 @@ PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/
 * [How to use new checkpoint?](https://github.com/w1oves/Rein/issues/4)
 * [What is the difference between the ReinMask2FormerHead and original Mask2FormerHead?](https://github.com/w1oves/Rein/issues/12)
 * [Multi-gpu training problem](https://github.com/w1oves/Rein/issues/6)
+* [How to Integrate Rein into Your Existing Backbone?(without mmsegmentation)](docs/easy_rein.md)
 
 * Q: Why do we need to use multiple weight files during testing?**
 
