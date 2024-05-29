@@ -3,7 +3,7 @@
 import argparse
 import os.path as osp
 
-import mmcv
+import mmengine
 from PIL import Image
 
 
@@ -41,8 +41,8 @@ def parse_args():
 
 def main():
     args = parse_args()
-    mmcv.mkdir_or_exist(args.dst_image_folder)
-    mmcv.mkdir_or_exist(args.dst_label_folder)
+    mmengine.mkdir_or_exist(args.dst_image_folder)
+    mmengine.mkdir_or_exist(args.dst_label_folder)
     imgs = []
     for filename in mmcv.scandir(args.image_folder, suffix=".jpg"):
         id = osp.splitext(filename)[0]
@@ -58,9 +58,9 @@ def main():
         for id in imgs
     ]
     if args.nproc > 1:
-        mmcv.track_parallel_progress(resize_half, tasks, args.nproc)
+        mmengine.track_parallel_progress(resize_half, tasks, args.nproc)
     else:
-        mmcv.track_progress(resize_half, tasks)
+        mmengine.track_progress(resize_half, tasks)
 
 
 if __name__ == "__main__":
