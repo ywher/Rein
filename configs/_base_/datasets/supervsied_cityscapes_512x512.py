@@ -27,6 +27,14 @@ train_cityscapes = dict(
     ),
     pipeline=cityscapes_train_pipeline,
 )
+train_dataloader=dict(
+    batch_size=2,
+    num_workers=2,
+    persistent_workers=True,
+    pin_memory=True,
+    sampler=dict(type="InfiniteSampler", shuffle=True),
+    dataset=train_cityscapes,
+)
 val_cityscapes = dict(
     type=cityscapes_type,
     data_root=cityscapes_root,
