@@ -186,7 +186,7 @@ PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/
 ## Generate full weights
 Because we only fine-tune and save the REIN and head weights, if you need a complete set of segmentor weights, you need to use this script:
 ```
-python generate_full_weights.py --segmentor_save_path SEGMENTOR_SAVE_PATH --backbone BACKBONE --rein_head REIN_HEAD
+python generate_full_weights.py --segmentor_save_path SEGMENTOR_SAVE_PATH --backbone CONVERTED_BACKBONE --rein_head REIN_HEAD
 ```
 ## FAQs
 * [Detailed instruction for mmsegmentation.](https://mmsegmentation.readthedocs.io/en/latest/)
