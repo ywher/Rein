@@ -182,6 +182,12 @@ Start training in multiple GPU:
 ```
 PORT=12345 CUDA_VISIBLE_DEVICES=1,2,3,4 bash tools/dist_train.sh configs/dinov2/rein_dinov2_mask2former_1024x1024_bs4x2.py NUM_GPUS
 ```
+
+## Generate full weights
+Because we only fine-tune and save the REIN and head weights, if you need a complete set of segmentor weights, you need to use this script:
+```
+python generate_full_weights.py --segmentor_save_path SEGMENTOR_SAVE_PATH --backbone BACKBONE --rein_head REIN_HEAD
+```
 ## FAQs
 * [Detailed instruction for mmsegmentation.](https://mmsegmentation.readthedocs.io/en/latest/)
 * [How to train on new dataset?](https://github.com/w1oves/Rein/issues/21)
