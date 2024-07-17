@@ -16,9 +16,9 @@ import rein
 # TODO: support fuse_conv_bn, visualization, and format_only
 def parse_args():
     parser = argparse.ArgumentParser(description="MMSeg test (and eval) a model")
-    parser.add_argument("config", help="train config file path")
-    parser.add_argument("checkpoint", help="rein and head checkpoint file")
-    parser.add_argument("--backbone", help="backbone checkpoint file", default="")
+    parser.add_argument("--config", help="train config file path", default="configs/dinov2_citys2acdc/rein_dinov2_mask2former_512x512_bs1x4.py")
+    parser.add_argument("--checkpoint", help="rein and head checkpoint file", default="work_dirs/rein_dinov2_mask2former_512x512_bs1x4/iter_40000.pth")
+    parser.add_argument("--backbone", help="backbone checkpoint file", default="checkpoints/dinov2_converted.pth")
     parser.add_argument(
         "--work-dir",
         help=(
@@ -33,7 +33,7 @@ def parse_args():
     )
     parser.add_argument("--show", action="store_true", help="show prediction results")
     parser.add_argument(
-        "--show-dir",
+        "--show_dir",
         help="directory where painted images will be saved. "
         "If specified, it will be automatically saved "
         "to the work_dir/timestamp/show_dir",
@@ -112,9 +112,9 @@ def main():
             "./work_dirs", osp.splitext(osp.basename(args.config))[0]
         )
     cfg.work_dir = cfg.work_dir + "_test"
-    cfg.load_from = args.checkpoint
+    cfg.load_from = args.checkpoint  # model checkpoint path
     if args.backbone:
-        custom_hooks = getattr(cfg, "custom_hooks", [])
+        custom_hooks = getattr(cfg, "custom_hooks", [])  # []
         custom_hooks.append(
             dict(type="LoadBackboneHook", checkpoint_path=args.backbone)
         )
