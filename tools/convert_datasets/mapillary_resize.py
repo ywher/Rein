@@ -3,6 +3,7 @@
 import argparse
 import os.path as osp
 
+import mmcv
 import mmengine
 from PIL import Image
 
@@ -44,7 +45,7 @@ def main():
     mmengine.mkdir_or_exist(args.dst_image_folder)
     mmengine.mkdir_or_exist(args.dst_label_folder)
     imgs = []
-    for filename in mmcv.scandir(args.image_folder, suffix=".jpg"):
+    for filename in mmengine.scandir(args.image_folder, suffix=".jpg"):
         id = osp.splitext(filename)[0]
         imgs.append(id)
     tasks = [
