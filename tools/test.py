@@ -16,8 +16,8 @@ import rein
 # TODO: support fuse_conv_bn, visualization, and format_only
 def parse_args():
     parser = argparse.ArgumentParser(description="MMSeg test (and eval) a model")
-    parser.add_argument("--config", help="train config file path", default="configs/dinov2_citys2acdc/rein_dinov2_mask2former_512x512_bs1x4.py")
-    parser.add_argument("--checkpoint", help="rein and head checkpoint file", default="work_dirs/rein_dinov2_mask2former_512x512_bs1x4/iter_40000.pth")
+    parser.add_argument("--config", help="train config file path", default="configs/dinov2/rein_dinov2_mask2former_bev20234_512x512_bs1x4.py")
+    parser.add_argument("--checkpoint", help="rein and head checkpoint file", default="work_dirs/rein_dinov2_mask2former_bev20234_512x512_bs1x4_4witers/iter_40000.pth")
     parser.add_argument("--backbone", help="backbone checkpoint file", default="checkpoints/dinov2_converted.pth")
     parser.add_argument(
         "--work-dir",
@@ -29,6 +29,7 @@ def parse_args():
     parser.add_argument(
         "--out",
         type=str,
+        default="work_dirs/rein_dinov2_mask2former_bev20234_512x512_bs1x4_4witers/pred_test",
         help="The directory to save output prediction for offline evaluation",
     )
     parser.add_argument("--show", action="store_true", help="show prediction results")
@@ -132,6 +133,8 @@ def main():
     if args.out is not None:
         cfg.test_evaluator["output_dir"] = args.out
         cfg.test_evaluator["keep_results"] = True
+        
+    print('cfg.test_evaluator', cfg.test_evaluator)
 
     # build the runner from config
     runner = Runner.from_cfg(cfg)

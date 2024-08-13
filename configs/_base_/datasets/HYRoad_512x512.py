@@ -10,12 +10,20 @@ HYRoad_train_pipeline = [
     dict(type="PhotoMetricDistortion"),
     dict(type="PackSegInputs"),
 ]
-HYRoad_test_pipeline = [
+HYRoad_val_pipeline = [
     dict(type="LoadImageFromFile"),
     # dict(type="Resize", scale=(1024, 512), keep_ratio=True),
     # add loading annotation after ``Resize`` because ground truth
     # does not need to do resize data transform
     dict(type="LoadAnnotations"),
+    dict(type="PackSegInputs"),
+]
+HYRoad_test_pipeline = [
+    dict(type="LoadImageFromFile"),
+    # dict(type="Resize", scale=(1024, 1024), keep_ratio=True),
+    # add loading annotation after ``Resize`` because ground truth
+    # does not need to do resize data transform
+    # dict(type="LoadAnnotations"),
     dict(type="PackSegInputs"),
 ]
 train_HYRoad = dict(
@@ -38,5 +46,14 @@ val_HYRoad = dict(
     ),
     img_suffix=".png",
     seg_map_suffix=".png",
+    pipeline=HYRoad_val_pipeline,
+)
+test_HYRoad = dict(
+    type=HYRoad_type,
+    data_root=HYRoad_root,
+    data_prefix=dict(
+        img_path="all_images",
+    ),
+    img_suffix=".png",
     pipeline=HYRoad_test_pipeline,
 )

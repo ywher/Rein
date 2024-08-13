@@ -34,7 +34,15 @@ test_dataloader = dict(
     num_workers=4,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=False),
-    dataset={{_base_.val_cityscapes}},
+    dataset=dict(
+        type="ConcatDataset",
+        datasets=[
+            {{_base_.test_night_acdc}},
+            {{_base_.test_snow_acdc}},
+            {{_base_.test_fog_acdc}},
+            {{_base_.test_rain_acdc}},
+        ],
+    ),
 )
 val_evaluator = dict(
     type="DGIoUMetric",
@@ -42,4 +50,11 @@ val_evaluator = dict(
     dataset_keys=["night/", "citys/", "fog/", "snow/", "rain/"],
     mean_used_keys=["night/", "fog/", "snow/", "rain/"],
 )
-test_evaluator = dict(type="IoUMetric", iou_metrics=["mIoU"])
+# test_evaluator = dict(type="IoUMetric", iou_metrics=["mIoU"])
+test_evaluator = dict(
+    type='DGIoUMetric',
+    iou_metrics=['mIoU'],
+    dataset_keys=["night/", "fog/", "snow/", "rain/"],
+    mean_used_keys=["night/", "fog/", "snow/", "rain/"],
+    format_only=True,
+    output_dir='work_dirs/format_results')

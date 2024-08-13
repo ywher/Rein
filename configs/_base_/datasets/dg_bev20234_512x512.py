@@ -16,8 +16,20 @@ val_dataloader = dict(
     sampler=dict(type="DefaultSampler", shuffle=False),
     dataset={{_base_.val_bev_20234}},
 )
-test_dataloader = val_dataloader
+# test_dataloader = val_dataloader
+test_dataloader = dict(
+    batch_size=1,
+    num_workers=4,
+    persistent_workers=True,
+    sampler=dict(type="DefaultSampler", shuffle=False),
+    dataset={{_base_.test_bev_20234}},
+)
 val_evaluator = dict(
     type="DGIoUMetric", iou_metrics=["mIoU"], dataset_keys=["bev20234"]
 )
-test_evaluator=val_evaluator
+# test_evaluator=val_evaluator
+test_evaluator = dict(
+    type='DGIoUMetric',
+    iou_metrics=['mIoU'],
+    format_only=True,
+    output_dir='work_dirs/format_results')

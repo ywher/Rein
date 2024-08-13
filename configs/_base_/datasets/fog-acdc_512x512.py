@@ -15,12 +15,20 @@ fog_acdc_train_pipeline = [
     dict(type="PhotoMetricDistortion"),
     dict(type="PackSegInputs"),
 ]
-fog_acdc_test_pipeline = [
+fog_acdc_val_pipeline = [
     dict(type="LoadImageFromFile"),
     dict(type="Resize", scale=(960, 540), keep_ratio=True),
     # add loading annotation after ``Resize`` because ground truth
     # does not need to do resize data transform
     dict(type="LoadAnnotations"),
+    dict(type="PackSegInputs"),
+]
+fog_acdc_test_pipeline = [
+    dict(type="LoadImageFromFile"),
+    # dict(type="Resize", scale=(960, 540), keep_ratio=True),
+    # add loading annotation after ``Resize`` because ground truth
+    # does not need to do resize data transform
+    # dict(type="LoadAnnotations"),
     dict(type="PackSegInputs"),
 ]
 train_fog_acdc = dict(
@@ -43,5 +51,15 @@ val_fog_acdc = dict(
     ),
     img_suffix="_rgb_anon.png",
     seg_map_suffix="_gt_labelTrainIds.png",
+    pipeline=fog_acdc_val_pipeline,
+)
+test_fog_acdc = dict(
+    type=fog_acdc_type,
+    data_root=fog_acdc_root,
+    data_prefix=dict(
+        img_path="rgb_anon/fog/test",
+    ),
+    img_suffix="_rgb_anon.png",
     pipeline=fog_acdc_test_pipeline,
 )
+

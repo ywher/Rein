@@ -15,12 +15,20 @@ night_acdc_train_pipeline = [
     dict(type="PhotoMetricDistortion"),
     dict(type="PackSegInputs"),
 ]
-night_acdc_test_pipeline = [
+night_acdc_val_pipeline = [
     dict(type="LoadImageFromFile"),
     dict(type="Resize", scale=(960, 540), keep_ratio=True),
     # add loading annotation after ``Resize`` because ground truth
     # does not need to do resize data transform
     dict(type="LoadAnnotations"),
+    dict(type="PackSegInputs"),
+]
+night_acdc_test_pipeline = [
+    dict(type="LoadImageFromFile"),
+    # dict(type="Resize", scale=(960, 540), keep_ratio=True),
+    # add loading annotation after ``Resize`` because ground truth
+    # does not need to do resize data transform
+    # dict(type="LoadAnnotations"),
     dict(type="PackSegInputs"),
 ]
 train_night_acdc = dict(
@@ -43,5 +51,14 @@ val_night_acdc = dict(
     ),
     img_suffix="_rgb_anon.png",
     seg_map_suffix="_gt_labelTrainIds.png",
+    pipeline=night_acdc_val_pipeline,
+)
+test_night_acdc = dict(
+    type=night_acdc_type,
+    data_root=night_acdc_root,
+    data_prefix=dict(
+        img_path="rgb_anon/night/test",
+    ),
+    img_suffix="_rgb_anon.png",
     pipeline=night_acdc_test_pipeline,
 )

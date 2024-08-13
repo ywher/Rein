@@ -10,12 +10,20 @@ bev_20234_train_pipeline = [
     dict(type="PhotoMetricDistortion"),
     dict(type="PackSegInputs"),
 ]
-bev_20234_test_pipeline = [
+bev_20234_val_pipeline = [
     dict(type="LoadImageFromFile"),
     # dict(type="Resize", scale=(1024, 1024), keep_ratio=True),
     # add loading annotation after ``Resize`` because ground truth
     # does not need to do resize data transform
     dict(type="LoadAnnotations"),
+    dict(type="PackSegInputs"),
+]
+bev_20234_test_pipeline = [
+    dict(type="LoadImageFromFile"),
+    # dict(type="Resize", scale=(1024, 1024), keep_ratio=True),
+    # add loading annotation after ``Resize`` because ground truth
+    # does not need to do resize data transform
+    # dict(type="LoadAnnotations"),
     dict(type="PackSegInputs"),
 ]
 train_bev_20234 = dict(
@@ -38,5 +46,14 @@ val_bev_20234 = dict(
     ),
     img_suffix=".png",
     seg_map_suffix=".png",
+    pipeline=bev_20234_val_pipeline,
+)
+test_bev_20234 = dict(
+    type=bev_20234_type,
+    data_root=bev_20234_root,
+    data_prefix=dict(
+        img_path="1-L/avm",
+    ),
+    img_suffix=".png",
     pipeline=bev_20234_test_pipeline,
 )
