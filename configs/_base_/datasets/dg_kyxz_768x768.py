@@ -1,5 +1,5 @@
 _base_ = [
-    "./kyxz_768x1024.py",
+    "./kyxz_768x768.py",
 ]
 train_dataloader = dict(
     batch_size=2,

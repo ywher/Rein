@@ -1,17 +1,33 @@
 # dataset config
 _base_ = [
-    "../_base_/datasets/dg_kyxz_768x1024.py",
+    "../_base_/datasets/dg_kyxz_768x768.py",
     "../_base_/default_runtime.py",
     "../_base_/models/rein_6cls_dinov2_mask2former.py"
 ]
+crop_size = (768, 768)
+model = dict(
+    backbone=dict(
+        img_size=(768, 768),
+        init_cfg=dict(
+            checkpoint="checkpoints/dinov2_converted_768x768.pth",
+        ),
+    ),
+    data_preprocessor=dict(
+        size=crop_size,
+    ),
+    test_cfg=dict(
+        crop_size=(768, 768),
+        stride=(683, 683),
+    ),
+)
 train_pipeline = [
     dict(type="LoadImageFromFile"),
     dict(type="LoadAnnotations"),
     dict(
         type="RandomChoiceResize",
-        scales=[int(512 * x * 0.1) for x in range(5, 21)],
+        scales=[int(768 * x * 0.1) for x in range(5, 21)],
         resize_type="ResizeShortestEdge",
-        max_size=2048,
+        max_size=1536,
     ),
     dict(type="RandomCrop", crop_size={{_base_.crop_size}}, cat_max_ratio=0.75),
     dict(type="RandomFlip", prob=0.5),
@@ -40,7 +56,15 @@ optim_wrapper = dict(
     ),
 )
 param_scheduler = [
-    dict(type="PolyLR", eta_min=0, power=0.9, begin=0, end=40000, by_epoch=False)  # 40000
+    dict(type="LinearLR", start_factor=1e-6, by_epoch=False, begin=0, end=10000),
+    dict(
+        type="PolyLR",
+        eta_min=0.0,
+        power=0.9,
+        begin=10000,
+        end=40000,
+        by_epoch=False,
+    ),
 ]
 
 # training schedule for 160k
@@ -52,7 +76,7 @@ default_hooks = dict(
     logger=dict(type="LoggerHook", interval=100, log_metric_by_epoch=False),  # 50
     param_scheduler=dict(type="ParamSchedulerHook"),
     checkpoint=dict(
-        type="CheckpointHook", by_epoch=False, interval=4000, max_keep_ckpts=3  # 4000
+        type="CheckpointHook", by_epoch=False, interval=5000, max_keep_ckpts=3  # 4000
     ),
     sampler_seed=dict(type="DistSamplerSeedHook"),
     visualization=dict(type="SegVisualizationHook"),

@@ -13,8 +13,8 @@
 
 
 ### dg kyxz
-# CUDA_VISIBLE_DEVICES=1 python tools/train.py \
-# --config configs/dinov2/rein_dinov2_mask2former_kyxz_768x1024_bs1x4.py
+CUDA_VISIBLE_DEVICES=1 python tools/train.py \
+--config configs/dinov2/rein_dinov2_mask2former_kyxz_768x768_bs1x4.py
 
 # PORT=12345 CUDA_VISIBLE_DEVICES=0,1 bash tools/dist_train.sh configs/dinov2/rein_dinov2_mask2former_1024x1024_bs4x2.py 2
 
@@ -27,8 +27,8 @@
 # CUDA_VISIBLE_DEVICES=1 python tools/train.py \
 # --config configs/dinov2/rein_dinov2_mask2former_bev20234_512x512_bs1x4.py
 
-CUDA_VISIBLE_DEVICES=1 python tools/train.py \
---config configs/dinov2/rein_dinov2_mask2former_bev20234_1024x1024_bs1x2.py
+# CUDA_VISIBLE_DEVICES=1 python tools/train.py \
+# --config configs/dinov2/rein_dinov2_mask2former_bev20234_1024x1024_bs1x2.py
 
 # dg HYRoad to HYRoad
 # CUDA_VISIBLE_DEVICES=1 python tools/train.py \

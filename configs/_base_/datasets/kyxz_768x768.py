@@ -1,6 +1,6 @@
 kyxz_type = "CityscapesDataset"
 kyxz_root = "data/kyxz/"
-kyxz_crop_size = (768, 1024)
+kyxz_crop_size = (768, 768)
 kyxz_train_pipeline = [
     dict(type="LoadImageFromFile"),
     dict(type="LoadAnnotations"),
