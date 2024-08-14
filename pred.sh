@@ -1,9 +1,16 @@
 ### cityscapes to acdc
-exp_folder="rein_dinov2_mask2former_512x512_bs1x4"
-CUDA_VISIBLE_DEVICES=1 python tools/test.py \
---config configs/dinov2_citys2acdc/rein_dinov2_mask2former_512x512_bs1x4.py \
+# exp_folder="rein_dinov2_mask2former_1024x1024_bs1x2"
+# CUDA_VISIBLE_DEVICES=1 python tools/test.py \
+# --config configs/dinov2_citys2acdc/${exp_folder}.py \
+# --checkpoint work_dirs/${exp_folder}/iter_40000.pth \
+# --backbone checkpoints/dinov2_converted_1024x1024.pth \
+# --out work_dirs/${exp_folder}/pred_acdc_test \
+
+exp_folder="rein_dinov2_mask2former_acdc_1024x1024_bs1x2"
+CUDA_VISIBLE_DEVICES=0 python tools/test.py \
+--config configs/dinov2_acdc/${exp_folder}.py \
 --checkpoint work_dirs/${exp_folder}/iter_40000.pth \
---backbone checkpoints/dinov2_converted.pth \
+--backbone checkpoints/dinov2_converted_1024x1024.pth \
 --out work_dirs/${exp_folder}/pred_acdc_test \
 
 ### bev20234

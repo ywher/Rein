@@ -18,16 +18,17 @@ val_dataloader = dict(
     num_workers=4,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=False),
-    dataset=dict(
-        type="ConcatDataset",
-        datasets=[
-            {{_base_.val_night_acdc}},
-            {{_base_.val_snow_acdc}},
-            {{_base_.val_fog_acdc}},
-            {{_base_.val_rain_acdc}},
-            {{_base_.val_cityscapes}},
-        ],
-    ),
+    dataset={{_base_.val_cityscapes}},
+    # dataset=dict(
+    #     type="ConcatDataset",
+    #     datasets=[
+    #         {{_base_.val_night_acdc}},
+    #         {{_base_.val_snow_acdc}},
+    #         {{_base_.val_fog_acdc}},
+    #         {{_base_.val_rain_acdc}},
+    #         {{_base_.val_cityscapes}},
+    #     ],
+    # ),
 )
 test_dataloader = dict(
     batch_size=1,
@@ -44,11 +45,16 @@ test_dataloader = dict(
         ],
     ),
 )
+# val_evaluator = dict(
+#     type="DGIoUMetric",
+#     iou_metrics=["mIoU"],
+#     dataset_keys=["night/", "cityscapes/", "fog/", "snow/", "rain/"],
+#     mean_used_keys=["night/", "fog/", "snow/", "rain/"],
+# )
 val_evaluator = dict(
     type="DGIoUMetric",
     iou_metrics=["mIoU"],
-    dataset_keys=["night/", "cityscapes/", "fog/", "snow/", "rain/"],
-    mean_used_keys=["night/", "fog/", "snow/", "rain/"],
+    dataset_keys=["cityscapes/"],
 )
 test_evaluator = dict(
     type="IoUMetric",
