@@ -56,20 +56,20 @@ optim_wrapper = dict(
     ),
 )
 param_scheduler = [
-    dict(type="LinearLR", start_factor=1e-6, by_epoch=False, begin=0, end=2500),
+    dict(type="LinearLR", start_factor=1e-6, by_epoch=False, begin=0, end=10000),
     dict(
         type="PolyLR",
         eta_min=0.0,
         power=0.9,
-        begin=2500,
-        end=10000,
+        begin=10000,
+        end=40000,
         by_epoch=False,
     ),
 ]
 
 
 # training schedule for 160k
-train_cfg = dict(type="IterBasedTrainLoop", max_iters=10000, val_interval=2000)  # 40000, 10000
+train_cfg = dict(type="IterBasedTrainLoop", max_iters=40000, val_interval=5000)  # 40000, 10000
 val_cfg = dict(type="ValLoop")
 test_cfg = dict(type="TestLoop")
 default_hooks = dict(
@@ -77,7 +77,7 @@ default_hooks = dict(
     logger=dict(type="LoggerHook", interval=100, log_metric_by_epoch=False),  # 50
     param_scheduler=dict(type="ParamSchedulerHook"),
     checkpoint=dict(
-        type="CheckpointHook", by_epoch=False, interval=2000, max_keep_ckpts=3  # 4000
+        type="CheckpointHook", by_epoch=False, interval=5000, max_keep_ckpts=3  # 4000
     ),
     sampler_seed=dict(type="DistSamplerSeedHook"),
     visualization=dict(type="SegVisualizationHook"),
