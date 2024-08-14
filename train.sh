@@ -27,12 +27,15 @@
 # CUDA_VISIBLE_DEVICES=1 python tools/train.py \
 # --config configs/dinov2/rein_dinov2_mask2former_bev20234_512x512_bs1x4.py
 
-CUDA_VISIBLE_DEVICES=1 python tools/train.py \
---config configs/dinov2/rein_dinov2_mask2former_bev20234_1024x1024_bs1x2.py
+# CUDA_VISIBLE_DEVICES=1 python tools/train.py \
+# --config configs/dinov2/rein_dinov2_mask2former_bev20234_1024x1024_bs1x2.py
 
 # dg HYRoad to HYRoad
 # CUDA_VISIBLE_DEVICES=1 python tools/train.py \
 # --config configs/dinov2/rein_dinov2_mask2former_HYroad_512x512_bs1x4.py
+
+CUDA_VISIBLE_DEVICES=1 python tools/train.py \
+--config configs/dinov2/rein_dinov2_mask2former_HYRoad_1024x1024_bs1x2.py
 
 # dg mapillary to mapillary
 # CUDA_VISIBLE_DEVICES=1 python tools/train.py \
