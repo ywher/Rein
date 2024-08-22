@@ -13,13 +13,13 @@
 # --out work_dirs/${folder}/pred_out
 
 ### city to acdc
-folder="rein_dinov2_mask2former_1024x1024_bs1x2"
-CUDA_VISIBLE_DEVICES=1 python tools/val.py \
---config configs/dinov2_citys2acdc/${folder}.py \
---checkpoint work_dirs/${folder}/iter_40000.pth \
---backbone checkpoints/dinov2_converted_1024x1024.pth \
---show_dir work_dirs/${folder}/pred \
---out work_dirs/${folder}/pred_city_val
+# folder="rein_dinov2_mask2former_1024x1024_bs1x2"
+# CUDA_VISIBLE_DEVICES=1 python tools/val.py \
+# --config configs/dinov2_citys2acdc/${folder}.py \
+# --checkpoint work_dirs/${folder}/iter_40000.pth \
+# --backbone checkpoints/dinov2_converted_1024x1024.pth \
+# --show_dir work_dirs/${folder}/pred \
+# --out work_dirs/${folder}/pred_city_val
 
 ### bev2024
 # CUDA_VISIBLE_DEVICES=1 python tools/val.py \
@@ -40,10 +40,11 @@ CUDA_VISIBLE_DEVICES=1 python tools/val.py \
 
 ### HYRoad
 # folder_name="rein_dinov2_mask2former_HYroad_512x512_bs1x4_4witers"
-# model_name="iter_40000.pth"
-# CUDA_VISIBLE_DEVICES=0 python tools/val.py \
-# --config configs/dinov2/rein_dinov2_mask2former_HYroad_512x512_bs1x4.py \
-# --checkpoint work_dirs/${folder_name}/${model_name} \
-# --backbone checkpoints/dinov2_converted.pth \
-# --show_dir work_dirs/${folder_name}/pred \
-# --out work_dirs/${folder_name}/pred_trainid
+folder_name="rein_dinov2_mask2former_HYRoad_1024x1024_bs1x2"
+model_name="iter_40000.pth"
+CUDA_VISIBLE_DEVICES=0 python tools/val.py \
+--config configs/dinov2/${folder_name}.py \
+--checkpoint work_dirs/${folder_name}/${model_name} \
+--backbone checkpoints/dinov2_converted_1024x1024.pth \
+--show_dir work_dirs/${folder_name}/pred \
+--out work_dirs/${folder_name}/pred_trainid
