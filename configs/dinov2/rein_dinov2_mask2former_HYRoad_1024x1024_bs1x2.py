@@ -2,7 +2,7 @@
 _base_ = [
     "../_base_/datasets/dg_HYRoad_1024x1024.py",
     "../_base_/default_runtime.py",
-    "../_base_/models/rein_16cls_dinov2_mask2former.py"
+    "../_base_/models/rein_16cls_dinov2_mask2former_1024.py"
 ]
 crop_size = (1024, 1024)
 model = dict(
