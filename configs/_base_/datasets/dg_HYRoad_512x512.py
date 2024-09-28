@@ -2,7 +2,7 @@ _base_ = [
     "./HYRoad_512x512.py",
 ]
 train_dataloader = dict(
-    batch_size=2,
+    batch_size=4,
     num_workers=2,
     persistent_workers=True,
     pin_memory=True,

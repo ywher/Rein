@@ -22,8 +22,8 @@ train_cityscapes = dict(
     type=cityscapes_type,
     data_root=cityscapes_root,
     data_prefix=dict(
-        img_path="leftImg8bit/train_100",
-        seg_map_path="gtFine/train_100",
+        img_path="leftImg8bit/train_10",
+        seg_map_path="gtFine/train_10",
     ),
     pipeline=cityscapes_train_pipeline,
 )
