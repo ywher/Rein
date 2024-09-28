@@ -2,7 +2,7 @@
 _base_ = [
     "../_base_/datasets/dg_HYRoad_512x512.py",
     "../_base_/default_runtime.py",
-    "../_base_/models/dinov2_mask2former.py",
+    "../_base_/models/16cls_dinov2_mask2former.py",
 ]
 model = dict(type="FrozenBackboneEncoderDecoder")
 train_pipeline = [
@@ -23,6 +23,7 @@ train_dataloader = dict(batch_size=4, dataset=dict(pipeline=train_pipeline))
 
 # AdamW optimizer, no weight decay for position embedding & layer norm
 # in backbone
+num_classes = 16
 embed_multi = dict(lr_mult=1.0, decay_mult=0.0)
 optim_wrapper = dict(
     constructor="PEFTOptimWrapperConstructor",
